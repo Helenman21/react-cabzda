@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+import { Accordion } from './Accordion';
+import { Rating } from './Rating';
+import { Buttons } from './Buttons';
+import React, { useState } from 'react';
+import CustomSelect, { cities } from './CustomSelect';
+import { CustomSelectUseMemo } from './stories/SelectTutorialUseMemo.stories';
+
+const AccordionMemo = React.memo(Accordion)
+const RatingMemo = React.memo(Rating)
+const ButtonsMemo = React.memo(Buttons)
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [stateAccordion, setStateAccordion] = useState(false)
+	const [stateOneOff, setStateOneOff] = useState(false)
+	const [itemsCustomSelect, setItemsCustomSelect] = useState(cities)
+	const [currentValueCustomSelect, setCurrentValueCustomSelect] = useState<string>('user1')
+	const callbackAddItemsCustomSelect = (item: string) =>{
+		setItemsCustomSelect([...itemsCustomSelect, {name: 'newCity', id: new Date().toString()}])
+	}
+	const changeActualValueCustomSelect = (newItem: string) => {
+		const currentValue = itemsCustomSelect.find(item => item.name === newItem)
+		if(currentValue){
+			setCurrentValueCustomSelect(currentValue.name)
+		}
+		
+	}
+
+	return (
+		 <div className="App">
+			{/* <AccordionMemo isOn={stateAccordion} onClick={setStateAccordion} name='this is accordion' />
+			<RatingMemo value={3}/>
+			<ButtonsMemo isOne={stateOneOff} onClick={(isOne) => setStateOneOff(isOne)} />
+			<CustomSelect currentValueCustomSelect={currentValueCustomSelect} 
+							  changeActualValueCustomSelect={changeActualValueCustomSelect} 
+							  items={itemsCustomSelect}
+							  callbackAddItemsCustomSelect={callbackAddItemsCustomSelect} /> */}
+			<CustomSelectUseMemo/>				  
+		 </div>
+	);
 }
 
 export default App;

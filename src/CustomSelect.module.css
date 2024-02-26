@@ -1,0 +1,15 @@
+.select .main{
+	border: 1px solid black;
+	display: inline-block;
+	min-height: 20px;
+	min-width: 40px;
+}
+
+.select .items {
+	position: absolut;
+	border: 1px solid black;
+}
+.item.selected {
+	background-color: blue;
+	color: azure;
+}
