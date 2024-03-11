@@ -6,6 +6,8 @@ import { Buttons } from './Buttons';
 import React, { useState } from 'react';
 import CustomSelect, { cities } from './CustomSelect';
 import { CustomSelectUseMemo } from './stories/SelectTutorialUseMemo.stories';
+import {UseEffectDemoclock} from './stories/useEffectDemoClock.stories';
+import Clock from './Clock';
 
 const AccordionMemo = React.memo(Accordion)
 const RatingMemo = React.memo(Rating)
@@ -36,7 +38,9 @@ function App() {
 							  changeActualValueCustomSelect={changeActualValueCustomSelect} 
 							  items={itemsCustomSelect}
 							  callbackAddItemsCustomSelect={callbackAddItemsCustomSelect} /> */}
-			<CustomSelectUseMemo/>				  
+			{/* <CustomSelectUseMemo/>				   */}
+			{/* <UseEffectDemoclock /> */}
+			<Clock/>
 		 </div>
 	);
 }
