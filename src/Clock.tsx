@@ -48,15 +48,7 @@ const classTransformMm = {
 const classTransformHh = {
 	transform:`rotate(${hh}deg)`
 }
-// 	// минутная стрелка
-// 	minute_arrow.style.transform = `rotate(${mm}deg)`;
-// 	// часовая стрелка
-// 	hour_arrow.style.transform = `rotate(${(hh)}deg)`;
 
-// }
-
-// clock();
-//setInterval(clock, 1000);
 	return (
 		<div className='clock-box'>
 
