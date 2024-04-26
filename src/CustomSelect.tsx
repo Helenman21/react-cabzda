@@ -13,6 +13,7 @@ export const cities: CustomSelectStateCitiesProps[] = [
 	{name: "Aban", id: new Date().toString()},
 	{name: "Adjo", id: new Date().toString()},
 ]
+//comment
 export type CustomSelectStateCitiesProps = {
  name: string
  id: string
